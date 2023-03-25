@@ -1,0 +1,26 @@
+body{
+    background-color: #172426;
+    /* background-color: GRAY; */
+}
+#hero-img{
+    height: 450px ;
+    width: 100% ;
+    /* scale: calc(3/3); */
+    /* object-fit: ; */
+    /* background-color: blue !important; */
+}
+.navbar{
+    background-color: rgba(0,0,0,0) !important;
+}
+.search-bar{
+    margin-bottom: 150px;
+}
+.img-thumbnail2{
+
+    max-width:100% ;
+    
+}
+
+footer{
+    background: linear-gradient(#172426, #3B0B0D, #000000);
+}
