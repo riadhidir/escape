@@ -24,3 +24,6 @@ body{
 footer{
     background: linear-gradient(#172426, #3B0B0D, #000000);
 }
+.items{
+    cursor: grab;
+}

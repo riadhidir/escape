@@ -133,7 +133,7 @@
     <div class=" container-fluid text-light my-5  ">
       <h1 class="display-6 ms-2 ms-lg-5 mb-4">Lorem ipsum dolor sit amet</h1>
 
-      <div class="d-flex flex-nowrap gap-3 gap-lg-5" style="overflow-x: auto;">
+      <div class="d-flex flex-nowrap gap-3 gap-lg-5 items" style="overflow-x: hidden;">
         <div class="card flex-shrink-0" style="width: 20rem;">
           <img src="src/Img/img3.jpg" class="card-img-top" alt="...">
           <div class="card-body text-dark d-flex flex-column">
@@ -183,7 +183,7 @@
     <div class=" container-fluid text-light my-5  ">
       <h1 class="display-6 ms-2 ms-lg-5 mb-4 ">Lorem ipsum dolor sit amet</h1>
 
-      <div class="d-flex flex-nowrap gap-3 gap-lg-5" style="overflow-x: auto;">
+      <div class="d-flex flex-nowrap gap-3 gap-lg-5 items" style="overflow-x: hidden;">
         <div class="card flex-shrink-0" style="width: 20rem;">
           <img src="src/Img/img1.jpg" class="card-img-top" alt="...">
           <div class="card-body text-dark d-flex flex-column">
@@ -233,7 +233,7 @@
     <div class=" container-fluid text-light my-5  ">
       <h1 class="display-6   ms-2 ms-lg-5 mb-4">Lorem ipsum dolor sit amet</h1>
 
-      <div class="d-flex flex-nowrap gap-3 gap-lg-5" style="overflow-x: auto;">
+      <div class="d-flex flex-nowrap gap-3 gap-lg-5 items" style="overflow-x: hidden;">
         <div class="card flex-shrink-0" style="width: 20rem;">
           <img src="src/Img/img2.jpg" class="card-img-top" alt="...">
           <div class="card-body text-dark d-flex flex-column">
@@ -328,21 +328,55 @@
         Copyright © 2012 - 2023 . All rights reserved.
       </p>
     </footer>
+
+<script>
+
+const slider = document.querySelectorAll('.items');
+let isDown = false;
+let startX;
+let scrollLeft;
+  for (let index = 0; index < slider.length; index++) {
+    slider[index].addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider[index].classList.add('active');
+  startX = e.pageX - slider[index].offsetLeft;
+  scrollLeft = slider[index].scrollLeft;
+});
+slider[index].addEventListener('mouseleave', () => {
+  isDown = false;
+  slider[index].classList.remove('active');
+});
+slider[index].addEventListener('mouseup', () => {
+  isDown = false;
+  slider[index].classList.remove('active');
+});
+slider[index].addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider[index].offsetLeft;
+  const walk = (x - startX) * 3; //scroll-fast
+  slider[index].scrollLeft = scrollLeft - walk;
+  console.log(walk);
+});
+    
+  }
+
+</script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/c501080d7e.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://kit.fontawesome.com/c501080d7e.js"
-    crossorigin="anonymous"
-  ></script>
 </html>
